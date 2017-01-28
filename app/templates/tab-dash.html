@@ -1,0 +1,44 @@
+<ion-view view-title="Dashboard">
+  <ion-content>
+    <div class="calculator_container">
+      <form name="Calculator">
+        <input style="display:none;" type="text" maxlength="40" size="25" name="Display" onChange="FixCurrent()">
+      </form>
+      <div class="results" name="results"></div>
+      <table>
+        <tbody>
+        <tr>
+          <td OnClick="Clear()">C</td>
+          <td OnClick="PlusMinus()">+/-</td>
+          <td>%</td>
+          <td OnClick="Operate('/')" class="right">÷</td>
+        </tr>
+        <tr>
+          <td OnClick="AddDigit('7')">7</td>
+          <td OnClick="AddDigit('8')">8</td>
+          <td OnClick="AddDigit('9')">9</td>
+          <td OnClick="Operate('*')" class="right">X</td>
+        </tr>
+        <tr>
+          <td OnClick="AddDigit('4')">4</td>
+          <td OnClick="AddDigit('5')">5</td>
+          <td OnClick="AddDigit('6')">6</td>
+          <td OnClick="Operate('-')" class="right">-</td>
+        </tr>
+        <tr>
+          <td OnClick="AddDigit('1')">1</td>
+          <td OnClick="AddDigit('2')">2</td>
+          <td OnClick="AddDigit('3')">3</td>
+          <td OnClick="Operate('+')" class="right">+</td>
+        </tr>
+        <tr>
+          <td OnClick="AddDigit('0')">0</td>
+          <td></td>
+          <td OnClick="Dot()">.</td>
+          <td OnClick="Calculate()" class="right">=</td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+  </ion-content>
+</ion-view>
