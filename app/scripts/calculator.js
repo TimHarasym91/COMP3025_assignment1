@@ -38,6 +38,7 @@ function addNum(num)
   document.getElementById("results").textContent = currentNum;
 }
 
+//Determines operation type and displays it and then runs the calculation function
 function Operate(op)
 {
   if(calcOperation != 0)
@@ -45,25 +46,25 @@ function Operate(op)
    Calculate();
   }
 
-  if(op.indexOf("*") > -1)
-  {
-   calcOperation = 1;
-   operationType = "x";
-  }
-  if(op.indexOf("/") > -1)
-  {
-   calcOperation = 2;
-   operationType =  "÷";
-  }
   if(op.indexOf("+") > -1)
   {
-   calcOperation = 3;
+   calcOperation = "add";
    operationType =  "+";
   }
   if(op.indexOf("-") > -1)
   {
-   calcOperation = 4;
+   calcOperation = "subtract";
    operationType =  "-";
+  }
+  if(op.indexOf("*") > -1)
+  {
+   calcOperation = "multiply";
+   operationType = "x";
+  }
+  if(op.indexOf("/") > -1)
+  {
+   calcOperation = "divide";
+   operationType =  "÷";
   }
 
   memory = currentNum;
@@ -78,14 +79,22 @@ function Operate(op)
   }
 }
 
+//Calculation function for all calculation types
 function Calculate()
 {
-  if(calcOperation == 1)
+  if(calcOperation == "add")
+  {
+   currentNum = eval(memory) + eval(currentNum);
+  }
+  if(calcOperation == "subtract")
+  {
+   currentNum = eval(memory) - eval(currentNum);
+  }
+  if(calcOperation == "multiply")
   {
    currentNum = eval(memory) * eval(currentNum);
   }
-
-  if(calcOperation == 2)
+  if(calcOperation == "divide")
   {
    if(eval(currentNum) != 0)
    {
@@ -97,25 +106,15 @@ function Calculate()
    }
   }
 
-  if(calcOperation == 3)
-  {
-   currentNum = eval(memory) + eval(currentNum);
-  }
-
-  if(calcOperation == 4)
-  {
-   currentNum = eval(memory) - eval(currentNum);
-  }
-
   calcOperation = 0;
   memory = "0";
   currentNum = currentNum + "";
 
+  //Special Cases
   if(currentNum.indexOf("Infinity") != -1)
   {
-   currentNum = "Error: Value too large.";
+   currentNum = "Error: Infinite Num.";
   }
-
   if(currentNum.indexOf("NaN") != -1)
   {
    currentNum = "Error: NaN";
@@ -123,12 +122,14 @@ function Calculate()
   document.getElementById("results").textContent = currentNum;
 }
 
+//Clears the current number
 function Clear()
 {
   currentNum = "0";
   document.getElementById("results").textContent = currentNum;
 }
 
+//Clears all memory
 function AllClear()
 {
   currentNum = "0";
@@ -137,6 +138,7 @@ function AllClear()
   document.getElementById("results").textContent = currentNum;
 }
 
+//Handles adding a decimal
 function addDecimal()
 {
   if(currentNum.length == 0)
@@ -153,6 +155,7 @@ function addDecimal()
   document.getElementById("results").textContent = currentNum;
 }
 
+//Function for changing value to and from +/-
 function plusMinus()
 {
   if(currentNum.indexOf("e") != -1)
