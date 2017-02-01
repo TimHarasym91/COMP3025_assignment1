@@ -12,6 +12,8 @@ tr{
   width:100%;
   background-color: #626262;
   color: #ffffff;
+  font-size: 2em;
+  padding: 12% 5% 12% 5%;
 }
 .calculator_container{
   height: 85vh;
