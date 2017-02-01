@@ -22,7 +22,7 @@ function addNum(num)
   }
   else
   {
-    currentNum = "Hint: Press 'AC'";
+    currentNum = "Press 'AC'";
   }
 
   if(currentNum.indexOf("e0") != -1)
